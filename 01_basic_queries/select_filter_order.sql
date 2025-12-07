@@ -1,6 +1,6 @@
 -- File Name: select_filter_order.sql
 -- Purpose: Demonstrates basic SELECT, WHERE, and ORDER BY commands on customer data.
--- Dataset: 'customers_data' table
+-- Dataset: A non-public dataset. 
 -- Author: dataanalysit26
 -- Date: 2025-12-07
 --------------------------------------------------------------
