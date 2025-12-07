@@ -17,4 +17,4 @@ The queries within this directory primarily focus on the following foundational 
 
 Each `.sql` file in this directory is commented to explain the query's objective and the underlying data logic.
 
-* `case_practices1.sql`: Example queries showing basic SELECT, FROM, WHERE, and ORDER BY usage.
+* [Key Campaign Metrics Query](select_filter_order.sql): Example queries showing basic SELECT, FROM, WHERE, and ORDER BY usage.
