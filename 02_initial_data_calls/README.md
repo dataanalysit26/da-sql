@@ -15,8 +15,18 @@ This project was developed to provide input for budget optimization by deeply an
 ## 🚀 Key Query Steps
 
 1.  **Core Metric Calculation (CTE 1):** Essential fields such as `total cost`, `conversion value`, `impressions`, and `clicks` were defined for each month (`ad_month`) and campaign (`utm_campaign`) using advertising data.
-2.  **Time-Series Comparison (CTE 2):** Utilizing the results of the first CTE, previous month's metrics were placed alongside the current month's values for each campaign using the **`LAG`** SQL Window Function.
+2.  **Time-Series Comparison (CTE 2):** Utilizing the results of the first CTE, previous month's metrics were placed alongside the current month's values for each campaign using the **`LAG`** SQL Window Function. 
 3.  **Percentage Change Calculation:** The monthly percentage changes for **`CPM`**, **`CTR`**, and **`ROMI`** were calculated based on the comparison between the previous and current month's metrics.
+
+---
+
+## 💻 Code and Data Transformation
+
+The full SQL script detailing the ETL process (Data Union, URL Cleaning) and time-series analysis is available here:
+
+* **SQL Script:** [`marketing_time_series_analysis.sql`](marketing_time_series_analysis.sql)
+
+---
 
 ## 📈 Outcome and Deliverables
 
