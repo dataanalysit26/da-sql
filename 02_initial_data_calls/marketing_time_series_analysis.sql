@@ -19,10 +19,39 @@
 
 CREATE OR REPLACE FUNCTION url_decode_utm(p_text text)
 RETURNS text AS $$
--- ... (Kalan PL/pgSQL kodunuz buraya gelecektir)
-$$ LANGUAGE plpgsql IMMUTABLE STRICT;
--- { Sadece fonksiyonun tanımının bir parçasıdır, gerçek kodda bu bloğu kaldırın }
+{
+CREATE OR REPLACE FUNCTION url_decode_utm(p_text text)
+RETURNS text AS $$
+DECLARE
+    v_result bytea := ''::bytea;
+    i int := 1;
+    hex text;
+    decoded_byte bytea;
+BEGIN
+    WHILE i <= length(p_text) LOOP
+        IF substr(p_text, i, 1) = '%' AND i + 2 <= length(p_text) THEN
+            hex := substr(p_text, i + 1, 2);
 
+            IF hex ~ '^[0-9A-Fa-f]{2}$' THEN
+                decoded_byte := decode(hex, 'hex');
+                v_result := v_result || decoded_byte;
+                i := i + 3;
+            ELSE
+                -- '%' karakterini bytea'ya ASCII olarak ekle
+                v_result := v_result || substr(p_text, i, 1)::bytea;
+                i := i + 1;
+            END IF;
+        ELSE
+            -- Diğer karakterleri ASCII bytea olarak ekle
+            v_result := v_result || substr(p_text, i, 1)::bytea;
+            i := i + 1;
+        END IF;
+    END LOOP;
+
+    RETURN convert_from(v_result, 'UTF8');
+END;
+$$ LANGUAGE plpgsql IMMUTABLE STRICT;
+}
 -- ##########################################################################
 -- # 1. ETL & KPI Calculation (CTEs)
 -- ##########################################################################
