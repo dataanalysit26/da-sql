@@ -31,9 +31,3 @@ The full SQL script detailing the ETL process (Data Union, URL Cleaning) and tim
 ## 📈 Outcome and Deliverables
 
 This analysis provides a **data-driven and automated** reporting mechanism that enables the Marketing team to quickly identify which campaigns are losing effectiveness (ROMI decrease) or increasing in cost (CPM increase).
-
-## 🔍 Key Findings / Insights (To be added later)
-
-[Insert your key quantifiable findings and business impact here.]
-
-**[Live Dashboard Link (Optional)]**
